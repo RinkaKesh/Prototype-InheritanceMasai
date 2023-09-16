@@ -45,16 +45,17 @@ let car1=new car("tata","nano",120,"petrol",4)
 // car1.accelerate(30)
 // car1.honk()
 
-function Aeroplane(brand,model,speed,fuel,engine,landingGear){
+function Aeroplane(brand,model,speed,fuel,engine,hasLandingGear){
     vehicle.call(this,brand,model,speed,fuel)
     this.NumberOfEngines=engine;
-    this.hasLandingGear=true;
+    this.hasLandingGear=hasLandingGear;
     this.takeOff=function(){
         console.log(`${this.Brand} ${this.Model} is taking off `)
     }
 }
-let plane1=new Aeroplane("spicejet","sp287",800,"type1",2,false)
-plane1.takeOff()
+Aeroplane.prototype=Object.create(vehicle.prototype)
+let plane1=new Aeroplane("spicejet","sp287",800,"Aviation Kerosene",2,false)
+console.log(plane1)
 
     </script>
 </body>

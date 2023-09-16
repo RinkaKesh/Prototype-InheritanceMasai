@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let Createcar={
+            brand:"tata",
+            refuel:function(){
+                console.log(`${this.brand} ${this.model} is refueling`)
+            },
+            brake:function(){
+                console.log(`${this.brand} ${this.model} has stopped`)
+            }
+
+            }
+
+        
+        let car1=Object.create(Createcar)
+        car1.model="nano";
+        car1.price=500000
+        car1.fuelType="petrol";
+    //    console.log(car1)
+
+    function car(model,price,fuel){
+        this.model=model;
+        this.price=price;
+        this.fuelType=fuel;
+    }
+    car.prototype=Createcar;
+//    Object.setPrototypeOf(car,Createcar)
+    let car2=new car("XUV700",600000,"petrol")
+    car2.brake()
+    </script>
+</body>
+</html>
