@@ -1,0 +1,2 @@
+# Prototype-InheritanceMasai
+masai assignment
