@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function vehicle(brand,model,speed,fuel){
+    this.Brand=brand;
+    this.Model=model;
+    this.Speed=speed;
+    this.FuelType=fuel;
+}
+
+
+vehicle.prototype.accelerate=function(increase){
+          this.Speed=this.Speed+increase;
+    console.log(`speed increased to ${this.Speed}`)
+}
+
+vehicle.prototype.brake=function(decrease){
+    this.Speed-=decrease;
+    console.log(`speed decreased to ${this.Speed}`)
+
+}
+vehicle.prototype.lowFuel=function(){
+    console.log(`${this.Model} is running on low fuel`)
+}
+vehicle.prototype.refuel=function(){
+     console.log(`${this.Model} is refueling`)
+}
+
+function car(brand,model,speed,fuel,wheel){
+    vehicle.call(this,brand,model,speed,fuel)
+    this.numberOfWheels=wheel;
+    this.honk=function(){
+        console.log(`${this.Brand} ${this.Model} is honking`)
+    }
+}
+
+car.prototype=Object.create(vehicle.prototype)
+let car1=new car("tata","nano",120,"petrol",4)
+// car1.accelerate(30)
+// car1.honk()
+
+function Aeroplane(brand,model,speed,fuel,engine,landingGear){
+    vehicle.call(this,brand,model,speed,fuel)
+    this.NumberOfEngines=engine;
+    this.hasLandingGear=true;
+    this.takeOff=function(){
+        console.log(`${this.Brand} ${this.Model} is taking off `)
+    }
+}
+let plane1=new Aeroplane("spicejet","sp287",800,"type1",2,false)
+plane1.takeOff()
+
+    </script>
+</body>
+</html>
